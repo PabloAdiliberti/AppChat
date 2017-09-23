@@ -1,0 +1,83 @@
+<!-- <ion-list>
+  <h1 align="center">Login</h1>
+    <ion-item>
+      <ion-label floating>Mail</ion-label>
+      <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Clave</ion-label>
+      <ion-input [(ngModel)]="password"  type="password" value=""></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <div padding>
+    <ion-list>
+      <ion-item>
+        <ion-label>Seleccione un Usuario...</ion-label>
+        <ion-select name="firstField" [(ngModel)]="tipoUser" (ionChange)="UserValido()">
+          <ion-option value="usuario">Usuario</ion-option>
+          <ion-option value="admin">Administrador</ion-option>
+          <ion-option value="invitado">Invitado</ion-option>
+          <ion-option value="jugador1">Jugador 1</ion-option>
+          <ion-option value="jugador2">Jugador 2</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <div padding>
+    <button ion-button full  (click)="login()">Login</button>
+    <button ion-button full  (click)="Registrarse()">Registrarse</button>
+ 
+  </div> -->
+
+
+
+
+  <body>
+
+  
+  <div>
+      <h3 align="center">Login</h3>
+    <form >
+        <label for="fname">Mail:</label>
+        <input type="text" id="fname" name="firstname" [(ngModel)]="username" placeholder="Ingrese su mail..">
+    
+        <label for="lname">Clave:</label>
+        <input type="password" id="lname" name="lastname"  [(ngModel)]="password" placeholder="Ingrese su clave">
+  
+      <!-- <label for="country">Seleccione un usuario:</label>
+      <select id="country" name="country"  [(ngModel)]="tipoUser" (onChange)="UserValido()" placeholder="Seleccione un usuario..">
+        <option value="usuario"  >Usuario</option>
+        <option value="admin">Administrador</option>
+        <option value="invitado">Invitado</option>
+        <option value="jugador1">Jugador 1</option>
+        <option value="jugador2">Jugador 2</option>
+      </select> -->
+
+      <ion-list>
+          <ion-item>
+            <ion-label>Seleccione un Usuario...</ion-label>
+            <ion-select name="f" [(ngModel)]="tipoUser" (ionChange)="UserValido()">
+              <ion-option value="usuario">Usuario</ion-option>
+              <ion-option value="admin">Administrador</ion-option>
+              <ion-option value="invitado">Invitado</ion-option>
+              <ion-option value="jugador1">Jugador 1</ion-option>
+              <ion-option value="jugador2">Jugador 2</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+       
+      <input type="submit" (click)="login()"  value="Login">
+      <input type="submit" (click)="Registrarse()"  value="Registrarse">
+    </form>
+  </div>
+
+
+  
+  </body>
+  
+

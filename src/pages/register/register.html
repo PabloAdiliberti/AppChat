@@ -1,0 +1,27 @@
+
+<body>
+  
+    
+    <div *ngIf="spiner == 1">
+        <h3>Registrase</h3>
+      <form >
+        <label for="fname">Mail:</label>
+        <input type="text" id="fname" name="firstname" [(ngModel)]="username" placeholder="Ingrese su mail..">
+    
+        <label for="lname">Clave:</label>
+        <input type="password" id="lname" name="lastname"  [(ngModel)]="password" placeholder="Ingrese su clave">
+
+        <label for="lname">Reingrese Clave:</label>
+        <input type="password" id="lname" name="lastname"  [(ngModel)]="passwordconfirm" placeholder="Reingrese su clave">
+    
+        <input type="submit" (click)="Aceptar()"  value="Aceptar">
+        <input type="submit" (click)="Cancelar()"  value="Cancelar">
+  
+          
+       
+      </form>
+    </div>
+    <p>
+    <ion-spinner class="spinner-balanced" name="circles" id="sidesbar" *ngIf="spiner == 0"></ion-spinner> 
+    </p>
+</body>
