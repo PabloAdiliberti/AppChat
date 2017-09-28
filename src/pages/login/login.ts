@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireModule} from 'angularfire2';
-import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+import { AngularFireAuthModule,AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
-import { AlertController } from 'ionic-angular';
-
+import { AlertController ,LoadingController, Loading} from 'ionic-angular';
+import { MenuAulaPage } from '../menu-aula/menu-aula';
 
 
 @IonicPage()
@@ -19,7 +19,8 @@ export class LoginPage {
 username:string;
 password:string;
 tipoUser:string;
-  constructor(public navCtrl: NavController,
+  constructor(public spiner:LoadingController,
+              public navCtrl: NavController,
               public navParams: NavParams,
               private _auth:AngularFireAuth,
               public alertCtrl: AlertController) {
@@ -31,16 +32,17 @@ tipoUser:string;
         this.showAlert("Debe completar el Email y su Clave para ingresar","Campo vacio!");
       }
       else{
-   await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
-                        .then(result => {this.navCtrl.push(TabsPage)})
-                        .catch(error =>{this.showAlert(error.message,"Error al ingresar!")})
+        let espera = this.MiSpiner();
+        espera.present();       
+        await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
+                        .then(result => { espera.dismiss();
+                                          this.navCtrl.push(MenuAulaPage,{usuario:this.username})})
+                        .catch(error =>{ espera.dismiss();
+                                        this.showAlert(error.message,"Error al ingresar!")})
 
                         
 
-                      // if(result!=undefined){
-                        
-                      //   console.log("INGRESO");
-                      // }
+                      
                     }
   }
   UserValido()
@@ -104,4 +106,17 @@ Registrarse(){
     console.log('ionViewDidLoad LoginPage');
   }
 
+  MiSpiner():Loading
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 25000
+      
+    });
+   // loader.present();
+    return loader;
+  }
+
 }
+
+

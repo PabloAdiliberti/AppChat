@@ -1,9 +1,9 @@
-page-register {
+page-chat {
     input[type=text],
     input[type=password],
     input[type=select],
     select {
-       width: 75%;
+       width: 100%;
        padding: 12px 20px;
        margin: 8px 0;
        display: inline-block;
@@ -13,7 +13,7 @@ page-register {
    }
  
    input[type=submit] {
-       width: 75%;
+       width: 100%;
        background-color: #D40A0A;
        color: white;
        padding: 14px 20px;
@@ -36,7 +36,7 @@ page-register {
 
    .miselect
    {
-     width: 75%;
+     width: 50%;
     // padding: 12px 20px;
      margin: 8px 0;
      display: inline-block;
@@ -45,4 +45,7 @@ page-register {
      box-sizing: border-box;
    }
 
+   table{
+       width: 100%;
+   }
 }

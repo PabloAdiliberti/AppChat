@@ -3,7 +3,7 @@ page-login {
        input[type=password],
        input[type=select],
        select {
-          width: 100%;
+          width: 75%;
           padding: 12px 20px;
           margin: 8px 0;
           display: inline-block;
@@ -13,7 +13,7 @@ page-login {
       }
     
       input[type=submit] {
-          width: 100%;
+          width: 75%;
           background-color: #D40A0A;
           color: white;
           padding: 14px 20px;
@@ -32,6 +32,17 @@ page-login {
            background-color: #FFFFFF;
           // padding: 20px;
            //height: 900px;
+      }
+
+      .miselect
+      {
+        width: 75%;
+       // padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #D40A0A;
+        border-radius: 25px;
+        box-sizing: border-box;
       }
 
 }

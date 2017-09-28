@@ -16,6 +16,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RegisterPage } from '../pages/register/register';
+import { MenuAulaPage } from '../pages/menu-aula/menu-aula';
+import { ChatPage } from '../pages/chat/chat';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCMbDLJQepOWSgA6h9mJLjdwDwO4oGBtiU",
@@ -34,7 +36,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuAulaPage,
+    ChatPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,9 @@ export const firebaseConfig = {
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    MenuAulaPage,
+    ChatPage
   ],
   providers: [
     StatusBar,

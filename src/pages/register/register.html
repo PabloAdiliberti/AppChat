@@ -1,24 +1,20 @@
-
 <body>
-  
     
-    <div *ngIf="spiner == 1">
+    <div align="center">
         <h3>Registrase</h3>
       <form >
-        <label for="fname">Mail:</label>
+        <label for="fname">Mail:</label><br>
         <input type="text" id="fname" name="firstname" [(ngModel)]="username" placeholder="Ingrese su mail..">
-    
-        <label for="lname">Clave:</label>
+        <br>
+        <label for="lname">Clave:</label><br>
         <input type="password" id="lname" name="lastname"  [(ngModel)]="password" placeholder="Ingrese su clave">
-
-        <label for="lname">Reingrese Clave:</label>
+        <br>
+        <label for="lname">Reingrese Clave:</label><br>
         <input type="password" id="lname" name="lastname"  [(ngModel)]="passwordconfirm" placeholder="Reingrese su clave">
     
         <input type="submit" (click)="Aceptar()"  value="Aceptar">
         <input type="submit" (click)="Cancelar()"  value="Cancelar">
-  
-          
-       
+         
       </form>
     </div>
     <p>

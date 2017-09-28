@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireModule} from 'angularfire2';
-import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
+import { AngularFireAuthModule,AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import {firebase}  from 'firebase/database';
 import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
-import { AlertController } from 'ionic-angular';
+import { AlertController, LoadingController ,Loading } from 'ionic-angular';
 
 
 @IonicPage()
@@ -19,8 +19,11 @@ export class RegisterPage {
   password:string;
   Mensaje:string;
   passwordconfirm:string;
-  spiner:any = 1;
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController,public navParams: NavParams,private _auth:AngularFireAuth) {
+  constructor(public spiner:LoadingController,
+              public navCtrl: NavController,
+              public alertCtrl: AlertController,
+              public navParams: NavParams,
+              private _auth:AngularFireAuth) {
     
   }
 
@@ -29,11 +32,10 @@ export class RegisterPage {
   }
   async Aceptar()
   {
-    //this.spiner=0;
     if(this.password.length>5){
     if(this.password==this.passwordconfirm)
     try{
-     
+      this.MiSpiner();
       const result = await this._auth.auth.createUserWithEmailAndPassword(this.username,this.password);
      
       this.Mensaje=this.username + " Fue ingresado Exitosamente!"
@@ -56,7 +58,7 @@ export class RegisterPage {
 
   }
   showAlert(mensaje:string,titulo:string) {
-    //this.spiner=1;
+
     switch(mensaje)
     {
       
@@ -82,5 +84,17 @@ export class RegisterPage {
   {
     this.navCtrl.push(LoginPage);
   }
+
+  MiSpiner()
+  {
+    let loader = this.spiner.create({
+      content:"Espere..",
+      duration: 2500
+      
+    });
+      loader.present();
+    
+  }
+
 
 }

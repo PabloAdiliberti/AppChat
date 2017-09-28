@@ -13,7 +13,7 @@ import {firebase} from 'firebase/database';
 export class MyApp {
   rootPage:any = LoginPage;
     
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, db: AngularFireDatabase) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
 
       statusBar.styleDefault();
